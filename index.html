@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="郑天鹏的个人学术网站，研究方向包括医学人工智能、大语言模型评测、计算机化自适应测验和心理测量。"
+    >
+    <title>郑天鹏 · 个人学术网站</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%23096770'/%3E%3Ctext x='32' y='39' text-anchor='middle' font-family='Arial,sans-serif' font-size='20' font-weight='700' fill='white'%3ETZ%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="styles.css">
+    <script src="site-data.js" defer></script>
+    <script src="main.js" defer></script>
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="topbar" id="top">
+        <a class="brand" href="#top" aria-label="Back to top">
+        </a>
+        <div class="language-switch" aria-label="Language switcher">
+          <button type="button" data-language-option="en">EN</button>
+          <button type="button" data-language-option="zh">ZH</button>
+        </div>
+      </header>
+
+      <main>
+        <section class="content-band overview-layout" id="about">
+          <div class="overview-main">
+            <section class="hero" aria-labelledby="hero-title">
+              <div class="hero-copy profile-card">
+                <img class="profile-photo" src="images/person.jpg" alt="Portrait of Tianpeng Zheng">
+                <div class="profile-card-copy">
+                  <h1 id="hero-title" data-profile="name"></h1>
+                </div>
+              </div>
+            </section>
+
+            <article class="info-card education-card">
+              <div class="card-heading">
+                <h2 data-ui="educationHeading"></h2>
+              </div>
+              <div class="education-list" data-education></div>
+            </article>
+          </div>
+
+          <aside class="overview-sidebar">
+            <article class="side-card contact-card" id="contact">
+              <h2 data-ui="quickContactHeading"></h2>
+              <div class="contact-links" data-contact-links></div>
+              <h2 class="direction-heading" id="research" data-ui="researchHeading"></h2>
+              <div class="direction-tags" data-research-tags></div>
+              <section class="research-focus-card" data-research-focus></section>
+            </article>
+          </aside>
+        </section>
+
+        <section class="content-band publications-band" id="publications">
+          <div class="section-row publication-row-heading">
+            <h3 data-ui="publicationsHeading"></h3>
+            <button class="text-button" type="button" data-publications-toggle></button>
+          </div>
+          <div class="publication-table" data-publications></div>
+        </section>
+
+      </main>
+
+      <footer class="footer">
+        <a href="#top" data-ui="backToTop"></a>
+      </footer>
+    </div>
+  </body>
+</html>

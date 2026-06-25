@@ -1,0 +1,18 @@
+# Local system files
+.DS_Store
+
+# Private source data and analysis history
+*.xlsx
+*.xls
+*.csv
+*.RData
+*.Rhistory
+
+# Local QA, drafts, and generated artifacts
+.superpowers/
+.playwright-cli/
+output/
+docs/superpowers/
+assets/qa-*.png
+assets/*concept*.png
+assets/research-visual.png
