@@ -220,8 +220,19 @@ const getJournalLevel = (paper) =>
 
 const getCasPartition = (paper) =>
   getPaperKeywords(paper).find((keyword) =>
-    /^(CAS\s+Q[1-4]|中科院[一二三四]区)$/i.test(keyword)
+    /^(CAS\s+Q1|中科院一区)$/i.test(keyword)
   );
+
+const getDisplayedRole = (paper) => {
+  const role = localize(paper.role);
+  if (/(共同第一|co-first)/i.test(role)) {
+    return currentLanguage === "zh" ? "共同第一作者" : "Co-first author";
+  }
+  if (/(通讯作者|corresponding)/i.test(role)) {
+    return currentLanguage === "zh" ? "通讯作者" : "Corresponding author";
+  }
+  return "";
+};
 
 const getJournalLevelPriority = (paper) => {
   const level = getJournalLevel(paper) || "";
@@ -272,6 +283,8 @@ const comparePublicationsByPriority = (a, b) => {
   const priority = priorityChecks.find((value) => value !== 0);
   return priority || getPaperTitle(a).localeCompare(getPaperTitle(b), currentLanguage === "zh" ? "zh-Hans-CN" : "en");
 };
+
+const comparePublicationsByYear = (a, b) => Number(b.year) - Number(a.year);
 
 const isJournalPublication = (paper) => {
   const type = localize(paper.type).toLowerCase();
@@ -399,7 +412,7 @@ const createPublicationEntry = (paper) => {
     meta.appendChild(tag);
   }
 
-  const role = localize(paper.role);
+  const role = getDisplayedRole(paper);
   if (role) {
     const tag = document.createElement("em");
     tag.className = "publication-role";
@@ -453,7 +466,7 @@ const createFeaturedPublication = (paper, index, data) => {
 
   const badges = document.createElement("div");
   badges.className = "featured-badges";
-  [localize(paper.role), getJournalLevel(paper), getCasPartition(paper), getImpactFactor(paper)]
+  [getDisplayedRole(paper), getJournalLevel(paper), getCasPartition(paper), getImpactFactor(paper)]
     .filter(Boolean)
     .forEach((value) => {
       const badge = document.createElement("span");
@@ -481,7 +494,7 @@ const renderFeaturedPublications = (data) => {
     .filter((paper) => paper.featured && isJournalPublication(paper))
     .slice()
     .sort(comparePublicationsByPriority)
-    .slice(0, 4)
+    .slice(0, 3)
     .forEach((paper, index) => {
       container.appendChild(createFeaturedPublication(paper, index, data));
     });
@@ -507,7 +520,7 @@ const renderPublications = (data) => {
   const journalPublications = data.publications
     .filter(isJournalPublication)
     .slice()
-    .sort(comparePublicationsByPriority);
+    .sort(comparePublicationsByYear);
   const groupedPublications = groupPublicationsByDomain(journalPublications);
   const orderedDomains = data.publicationDomainOrder?.map((domain) => localize(domain)).filter(Boolean) || [];
   const remainingDomains = [...groupedPublications.keys()].filter((domain) => !orderedDomains.includes(domain));

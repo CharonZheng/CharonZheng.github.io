@@ -95,7 +95,6 @@ const PUBLICATIONS = [
   },
   {
     year: "2025",
-    featured: true,
     title: "Medical exam question difficulty prediction: An analysis of embedding representations, machine-learning approaches, and input feature impact.",
     domains: [{ en: "Educational and Psychological Measurement", zh: "心理教育测量" }],
     citation:
