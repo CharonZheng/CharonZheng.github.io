@@ -279,12 +279,10 @@ const SITE_DATA = {
       contactInfoHeading: "Contact",
       aboutHeading: "About Me",
       aboutLead:
-        "My research lies at the intersection of psychological and educational measurement, artificial intelligence, and medical education. I focus on integrating modern measurement theory with artificial intelligence to develop scientific, efficient, and reliable intelligent assessment methods. My current work centers on evaluating large language model capabilities, multimodal intelligent scoring, and their psychometric properties, with the goal of advancing these methods in medical education and clinical skills assessment.",
+        "My current research interests focus on the intersection of psychological and educational measurement, artificial intelligence, and medical education. I primarily explore the integration of modern measurement theory and artificial intelligence, seeking to develop scientific, efficient, and reliable intelligent assessment methods. My current work focuses on evaluating large language model capabilities, multimodal intelligent scoring, and their psychometric properties, and on advancing these methods in medical education and clinical skills assessment.",
       heroPrimaryCta: "View representative work",
       heroSecondaryCta: "Contact for collaboration",
       focusHeading: "Current Research Focus",
-      researchIntro:
-        "I work on measurement-grounded methods for evaluating large language models in medical and educational assessment settings.",
       publicationsHeading: "Academic Outputs",
       publicationsNote: "Updated from the current academic outputs workbook.",
       featuredHeading: "Representative Work",
@@ -423,12 +421,10 @@ const SITE_DATA = {
       contactInfoHeading: "联系信息",
       aboutHeading: "关于我",
       aboutLead:
-        "我的研究兴趣位于心理与教育测量、人工智能与医学教育的交叉领域，重点探索现代测量理论与人工智能技术的融合，发展科学、高效、可靠的智能测评方法。目前主要关注大语言模型能力评估、多模态智能评分及其测量学性质，并致力于推动相关方法在医学教育与临床技能评价中的应用。",
+        "我当前的研究兴趣聚焦于心理与教育测量、人工智能与医学教育的交叉领域，重点探索现代测量理论与人工智能技术的融合，探索发展科学、高效、可靠的智能测评方法。目前主要关注大语言模型能力评估、多模态智能评分及其测量学性质，并致力于推动相关方法在医学教育与临床技能评价中的应用。",
       heroPrimaryCta: "查看代表成果",
       heroSecondaryCta: "联系合作交流",
       focusHeading: "当前研究焦点",
-      researchIntro:
-        "我关注用测量学方法评估医学与教育场景中的大语言模型，尤其是自适应测验、项目反应理论和认知诊断模型。",
       publicationsHeading: "学术成果",
       publicationsNote: "已根据当前学术成果工作簿更新。",
       featuredHeading: "代表成果",

@@ -73,6 +73,13 @@ const renderProfileInlineLinks = (data) => {
   if (!container) return;
 
   data.links.forEach((link) => {
+    if (link.key === "email") {
+      const email = document.createElement("span");
+      email.className = "profile-inline-email";
+      email.textContent = `[${link.note || link.href.replace(/^mailto:/, "")}]`;
+      container.appendChild(email);
+      return;
+    }
     container.appendChild(createExternalLink(`[${link.label}]`, link.href));
   });
 };
