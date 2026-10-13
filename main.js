@@ -4,7 +4,7 @@ const STORAGE_KEY = "academic-site-language";
 const DEFAULT_VISIBLE_PUBLICATIONS_PER_DOMAIN = 2;
 
 let currentLanguage = localStorage.getItem(STORAGE_KEY) || "zh";
-let expandedPublicationDomains = new Set();
+let collapsedPublicationDomains = new Set();
 
 const getData = () => SITE_DATA[currentLanguage] || SITE_DATA.zh;
 
@@ -86,29 +86,6 @@ const renderEducation = (data) => {
     row.className = "education-item";
     row.innerHTML = `<time>${item.period}</time><strong>${item.school}</strong><span>${item.field}</span>`;
     container.appendChild(row);
-  });
-};
-
-const renderNews = (data) => {
-  const container = resetContainer("[data-news]");
-  if (!container) return;
-
-  data.news.forEach((item) => {
-    const entry = document.createElement("article");
-    entry.className = "news-entry";
-
-    const date = document.createElement("time");
-    date.textContent = item.date;
-
-    const copy = document.createElement("p");
-    if (item.href) {
-      copy.appendChild(createExternalLink(item.text, item.href));
-    } else {
-      copy.textContent = item.text;
-    }
-
-    entry.append(date, copy);
-    container.appendChild(entry);
   });
 };
 
@@ -501,10 +478,10 @@ const renderFeaturedPublications = (data) => {
   if (!container) return;
 
   data.publications
-    .filter(isJournalPublication)
+    .filter((paper) => paper.featured && isJournalPublication(paper))
     .slice()
     .sort(comparePublicationsByPriority)
-    .slice(0, 3)
+    .slice(0, 4)
     .forEach((paper, index) => {
       container.appendChild(createFeaturedPublication(paper, index, data));
     });
@@ -556,7 +533,7 @@ const renderPublications = (data) => {
 
     const visiblePapers = papers.slice(0, DEFAULT_VISIBLE_PUBLICATIONS_PER_DOMAIN);
     const remainingPapers = papers.slice(DEFAULT_VISIBLE_PUBLICATIONS_PER_DOMAIN);
-    const isExpanded = expandedPublicationDomains.has(domain);
+    const isExpanded = !collapsedPublicationDomains.has(domain);
 
     visiblePapers.forEach((paper) => list.appendChild(createPublicationEntry(paper)));
 
@@ -572,10 +549,10 @@ const renderPublications = (data) => {
       button.textContent = getDomainToggleLabel(remainingPapers.length, isExpanded, data);
       button.setAttribute("aria-expanded", isExpanded ? "true" : "false");
       button.addEventListener("click", () => {
-        if (expandedPublicationDomains.has(domain)) {
-          expandedPublicationDomains.delete(domain);
+        if (collapsedPublicationDomains.has(domain)) {
+          collapsedPublicationDomains.delete(domain);
         } else {
-          expandedPublicationDomains.add(domain);
+          collapsedPublicationDomains.add(domain);
         }
         renderPublications(getData());
       });
@@ -631,7 +608,6 @@ const renderPage = () => {
   renderProfile(data);
   renderProfileInlineLinks(data);
   renderEducation(data);
-  renderNews(data);
   renderLinks(data);
   renderResearchTags(data);
   renderResearchDirections(data);

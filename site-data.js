@@ -1,6 +1,7 @@
 const PUBLICATIONS = [
   {
     year: "2026",
+    featured: true,
     title: "Leveraging Computerized Adaptive Testing for Cost-effective Evaluation of Large Language Models in Medical Benchmarking",
     domains: [{ en: "AI & Medical Education", zh: "AI&医学教育" }],
     authors: "Zheng, T., Jiang, Z., Liu, J., & Feng, S.",
@@ -20,6 +21,7 @@ const PUBLICATIONS = [
   },
   {
     year: "2026",
+    featured: true,
     title: "Transfer learning for text-based distractor selection rate prediction in medical multiple-choice questions: fine-tuning embedding models as a plausibility proxy",
     domains: [{ en: "AI & Medical Education", zh: "AI&医学教育" }],
     authors: "Jiang, Z., Zheng, T., Liu, J., & Feng, S.",
@@ -58,6 +60,7 @@ const PUBLICATIONS = [
   },
   {
     year: "2026",
+    featured: true,
     title: "Empowering Expert Judgment: A Data-Driven Decision Framework for Standard Setting in High-Dimensional and Data-Scarce Assessments",
     domains: [{ en: "Educational and Psychological Measurement", zh: "心理教育测量" }],
     citation:
@@ -92,6 +95,7 @@ const PUBLICATIONS = [
   },
   {
     year: "2025",
+    featured: true,
     title: "Medical exam question difficulty prediction: An analysis of embedding representations, machine-learning approaches, and input feature impact.",
     domains: [{ en: "Educational and Psychological Measurement", zh: "心理教育测量" }],
     citation:
@@ -255,7 +259,7 @@ const SITE_DATA = {
     },
     profile: {
       name: "Tianpeng Zheng",
-      headline: "AI in Medicine · LLM Evaluation · Psychometrics",
+      headline: "AI-Driven Intelligent Assessment | Medical Education | Psychological & Educational Measurement",
       summary:
         "I study efficient, psychometrically grounded evaluation methods for large language models in medical benchmarking, with a focus on computerized adaptive testing, item response theory, and cost-aware model assessment.",
       location: "Academic collaboration worldwide",
@@ -263,7 +267,7 @@ const SITE_DATA = {
         "Open to research discussions on medical AI evaluation, benchmark design, and psychometric measurement for foundation models."
     },
     ui: {
-      navAbout: "About",
+      navAbout: "About Me",
       navHome: "Home",
       navPublications: "Publications",
       navResearch: "Research",
@@ -274,17 +278,14 @@ const SITE_DATA = {
       educationHeading: "Education",
       profilesHeading: "Academic Profiles",
       contactInfoHeading: "Contact",
-      aboutKicker: "Personal academic website",
-      aboutHeading: "About",
+      aboutHeading: "About Me",
       aboutLead:
-        "My current work connects medical artificial intelligence with measurement science. I am especially interested in how adaptive testing and item response theory can make large language model evaluation more efficient, interpretable, and reproducible.",
-      heroKicker: "Academic profile",
+        "My research lies at the intersection of psychological and educational measurement, artificial intelligence, and medical education. I focus on integrating modern measurement theory with artificial intelligence to develop scientific, efficient, and reliable intelligent assessment methods. My current work centers on evaluating large language model capabilities, multimodal intelligent scoring, and their psychometric properties, with the goal of advancing these methods in medical education and clinical skills assessment.",
       heroPrimaryCta: "View representative work",
       heroSecondaryCta: "Contact for collaboration",
       focusHeading: "Current Research Focus",
       researchIntro:
         "I work on measurement-grounded methods for evaluating large language models in medical and educational assessment settings.",
-      newsHeading: "News",
       publicationsHeading: "Academic Outputs",
       publicationsNote: "Updated from the current academic outputs workbook.",
       featuredHeading: "Representative Work",
@@ -360,17 +361,6 @@ const SITE_DATA = {
         field: "School of Public Health"
       }
     ],
-    news: [
-      {
-        date: "2026",
-        text: "Computerized adaptive testing work for cost-effective medical LLM benchmarking was published in npj Digital Medicine.",
-        href: "https://doi.org/10.1038/s41746-026-02671-w"
-      },
-      {
-        date: "Updates",
-        text: "Maintaining a structured academic outputs record for research updates and collaboration tracking."
-      }
-    ],
     researchFocus: {
       title: "Current Research Focus",
       body: "Multimodal assessment methods for examination and evaluation."
@@ -415,7 +405,7 @@ const SITE_DATA = {
     },
     profile: {
       name: "郑天鹏",
-      headline: "医学人工智能 · 大语言模型评测 · 心理测量",
+      headline: "人工智能驱动的智能测评｜医学教育｜心理与教育测量",
       summary:
         "我的研究关注医学基准中大语言模型的高效、低成本且具有心理测量依据的评测方法，重点包括计算机化自适应测验、项目反应理论和模型能力估计。",
       location: "面向全球学术合作",
@@ -423,7 +413,7 @@ const SITE_DATA = {
         "欢迎围绕医学 AI 评测、基准设计、项目库校准和基础模型心理测量开展学术交流。"
     },
     ui: {
-      navAbout: "简介",
+      navAbout: "关于我",
       navHome: "首页",
       navPublications: "成果",
       navResearch: "研究",
@@ -434,17 +424,14 @@ const SITE_DATA = {
       educationHeading: "教育经历",
       profilesHeading: "学术主页",
       contactInfoHeading: "联系信息",
-      aboutKicker: "个人学术网站",
-      aboutHeading: "简介",
+      aboutHeading: "关于我",
       aboutLead:
-        "我目前的工作连接医学人工智能与测量科学，尤其关注如何通过自适应测验和项目反应理论，让大语言模型评测更加高效、可解释和可复现。",
-      heroKicker: "个人学术主页",
+        "我的研究兴趣位于心理与教育测量、人工智能与医学教育的交叉领域，重点探索现代测量理论与人工智能技术的融合，发展科学、高效、可靠的智能测评方法。目前主要关注大语言模型能力评估、多模态智能评分及其测量学性质，并致力于推动相关方法在医学教育与临床技能评价中的应用。",
       heroPrimaryCta: "查看代表成果",
       heroSecondaryCta: "联系合作交流",
       focusHeading: "当前研究焦点",
       researchIntro:
         "我关注用测量学方法评估医学与教育场景中的大语言模型，尤其是自适应测验、项目反应理论和认知诊断模型。",
-      newsHeading: "动态",
       publicationsHeading: "学术成果",
       publicationsNote: "已根据当前学术成果工作簿更新。",
       featuredHeading: "代表成果",
@@ -518,17 +505,6 @@ const SITE_DATA = {
         period: "2024年至今",
         school: "北京大学",
         field: "社会医学与卫生事业管理"
-      }
-    ],
-    news: [
-      {
-        date: "2026",
-        text: "计算机化自适应测验用于低成本医学大语言模型基准评测的工作已发表于 npj Digital Medicine。",
-        href: "https://doi.org/10.1038/s41746-026-02671-w"
-      },
-      {
-        date: "持续更新",
-        text: "正在维护结构化学术成果记录，用于记录研究更新与合作线索。"
       }
     ],
     researchFocus: {
