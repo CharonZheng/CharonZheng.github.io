@@ -441,7 +441,8 @@ img {
 .about-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.15fr) minmax(340px, 0.85fr);
-  gap: clamp(50px, 8vw, 96px);
+  column-gap: clamp(50px, 8vw, 96px);
+  row-gap: 44px;
   align-items: start;
 }
 
@@ -519,6 +520,48 @@ img {
   display: grid;
   gap: 12px;
   margin-top: 18px;
+}
+
+.contact-strip {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: minmax(130px, 0.28fr) minmax(0, 1.72fr);
+  gap: 34px;
+  align-items: center;
+  padding: 24px 28px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: linear-gradient(105deg, var(--paper-cool), #fff 42%);
+  box-shadow: var(--shadow);
+}
+
+.contact-strip h3 {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--display);
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.contact-strip .contact-links {
+  grid-template-columns: 1fr 1.25fr 1.15fr 1.2fr;
+  gap: 0;
+  margin-top: 0;
+}
+
+.contact-strip .contact-link {
+  min-width: 0;
+  padding-inline: 14px;
+  border-left: 1px solid var(--line);
+}
+
+.contact-strip .contact-link:first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+
+.contact-strip .contact-link:last-child {
+  padding-right: 0;
 }
 
 .contact-link {
@@ -1144,13 +1187,22 @@ img {
   }
 
   .profile-panel {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: block;
   }
 
-  .panel-section + .panel-section {
-    border-top: 0;
-    border-left: 1px solid var(--line);
+  .contact-strip {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .contact-strip .contact-links {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 18px;
+  }
+
+  .contact-strip .contact-link:nth-child(odd) {
+    padding-left: 0;
+    border-left: 0;
   }
 
   .news-section {
@@ -1249,15 +1301,25 @@ img {
   }
 
   .profile-panel {
-    grid-template-columns: 1fr;
+    display: block;
   }
 
   .panel-section {
     padding: 24px;
   }
 
-  .panel-section + .panel-section {
-    border-top: 1px solid var(--line);
+  .contact-strip {
+    gap: 18px;
+    padding: 24px;
+  }
+
+  .contact-strip .contact-links {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .contact-strip .contact-link {
+    padding-inline: 0;
     border-left: 0;
   }
 
