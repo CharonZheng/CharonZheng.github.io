@@ -390,8 +390,9 @@ html:lang(zh) .hero-headline {
 .profile-inline-links a,
 .profile-inline-email {
   color: rgba(255, 255, 255, 0.72);
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
+  line-height: 1.45;
   text-decoration: none;
 }
 
@@ -1224,6 +1225,11 @@ html:lang(zh) .hero-headline {
 
   .profile-inline-links {
     gap: 10px;
+  }
+
+  .profile-inline-links a,
+  .profile-inline-email {
+    font-size: 12px;
   }
 
   .section-block {
