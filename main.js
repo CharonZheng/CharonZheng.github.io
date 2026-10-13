@@ -241,6 +241,11 @@ const getJournalLevel = (paper) =>
     /^(JCR\s+Q\d|CSSCI|普通期刊)$/i.test(keyword)
   );
 
+const getCasPartition = (paper) =>
+  getPaperKeywords(paper).find((keyword) =>
+    /^(CAS\s+Q[1-4]|中科院[一二三四]区)$/i.test(keyword)
+  );
+
 const getJournalLevelPriority = (paper) => {
   const level = getJournalLevel(paper) || "";
   if (/JCR\s+Q1/i.test(level)) return 5;
@@ -401,6 +406,14 @@ const createPublicationEntry = (paper) => {
     meta.appendChild(tag);
   }
 
+  const casPartition = getCasPartition(paper);
+  if (casPartition) {
+    const tag = document.createElement("em");
+    tag.className = "publication-role publication-level";
+    tag.textContent = casPartition;
+    meta.appendChild(tag);
+  }
+
   const impactFactor = getImpactFactor(paper);
   if (impactFactor) {
     const tag = document.createElement("em");
@@ -463,7 +476,7 @@ const createFeaturedPublication = (paper, index, data) => {
 
   const badges = document.createElement("div");
   badges.className = "featured-badges";
-  [localize(paper.role), getJournalLevel(paper), getImpactFactor(paper)]
+  [localize(paper.role), getJournalLevel(paper), getCasPartition(paper), getImpactFactor(paper)]
     .filter(Boolean)
     .forEach((value) => {
       const badge = document.createElement("span");

@@ -13,13 +13,33 @@ const PUBLICATIONS = [
     keywords: [
       { en: "Co-first author (first-listed)", zh: "共同第一作者第一" },
       "JCR Q1",
-      "IF 18.0"
+      "IF 18.0",
+      { en: "CAS Q1", zh: "中科院一区" }
     ],
     href: "https://doi.org/10.1038/s41746-026-02671-w"
   },
   {
     year: "2026",
-    title: "Fine-Grained Evaluation of Large Language Models in Medicine Using Non-Parametric Cognitive Diagnostic Mode",
+    title: "Transfer learning for text-based distractor selection rate prediction in medical multiple-choice questions: fine-tuning embedding models as a plausibility proxy",
+    domains: [{ en: "AI & Medical Education", zh: "AI&医学教育" }],
+    authors: "Jiang, Z., Zheng, T., Liu, J., & Feng, S.",
+    citation:
+      "Jiang, Z., Zheng, T., Liu, J., & Feng, S. Transfer learning for text-based distractor selection rate prediction in medical multiple-choice questions: fine-tuning embedding models as a plausibility proxy. npj Digit. Med. (2026). https://doi.org/10.1038/s41746-026-03113-3",
+    venue: "npj Digital Medicine",
+    citationVenue: "npj Digit. Med.",
+    type: { en: "Journal article", zh: "期刊论文-英文" },
+    role: { en: "Second author", zh: "第二作者" },
+    keywords: [
+      { en: "Second author", zh: "第二作者" },
+      "JCR Q1",
+      "IF 18.0",
+      { en: "CAS Q1", zh: "中科院一区" }
+    ],
+    href: "https://doi.org/10.1038/s41746-026-03113-3"
+  },
+  {
+    year: "2026",
+    title: "Fine-grained evaluation of large language models in medicine using non-parametric cognitive diagnostic modeling",
     domains: [{ en: "AI & Medical Education", zh: "AI&医学教育" }],
     authors: "Zheng, T., Liu, J., Feng, S., & Jiang, Z.",
     citation:
@@ -31,7 +51,8 @@ const PUBLICATIONS = [
     keywords: [
       { en: "First author", zh: "第一作者" },
       "JCR Q1",
-      "IF 4.9"
+      "IF 3.9",
+      { en: "CAS Q3", zh: "中科院三区" }
     ],
     href: "https://doi.org/10.1038/s41598-026-36627-7"
   },
@@ -47,7 +68,8 @@ const PUBLICATIONS = [
     keywords: [
       { en: "First author", zh: "第一作者" },
       "JCR Q1",
-      "IF 4.4"
+      "IF 4.4",
+      { en: "CAS Q4", zh: "中科院四区" }
     ],
     href: "https://doi.org/10.1177/00131644251405406"
   },
@@ -63,7 +85,8 @@ const PUBLICATIONS = [
     keywords: [
       { en: "Third author", zh: "第三作者" },
       "JCR Q1",
-      "IF 4.4"
+      "IF 4.4",
+      { en: "CAS Q4", zh: "中科院四区" }
     ],
     href: "https://doi.org/10.1177/00131644251380585"
   },
@@ -79,7 +102,8 @@ const PUBLICATIONS = [
     keywords: [
       { en: "Co-first author (second-listed)", zh: "共同第一作者第二" },
       "JCR Q1",
-      "IF 4.0"
+      "IF 4.0",
+      { en: "CAS Q3", zh: "中科院三区" }
     ],
     href: "https://doi.org/10.1080/0142159X.2025.2586619"
   },
@@ -92,7 +116,12 @@ const PUBLICATIONS = [
     venue: "Children and Youth Services Review",
     type: { en: "Journal article", zh: "期刊论文-英文" },
     role: { en: "First author", zh: "第一作者" },
-    keywords: [{ en: "First author", zh: "第一作者" }, "JCR Q2", "IF 2.1"],
+    keywords: [
+      { en: "First author", zh: "第一作者" },
+      "JCR Q2",
+      "IF 2.1",
+      { en: "CAS Q3", zh: "中科院三区" }
+    ],
     href: "https://doi.org/10.1016/j.childyouth.2024.107884"
   },
   {
@@ -202,7 +231,11 @@ const PUBLICATIONS = [
     venue: { en: "Acta Psychologica Sinica", zh: "心理学报" },
     type: { en: "Journal article (Chinese)", zh: "期刊论文-中文" },
     role: { en: "Third author", zh: "第三作者" },
-    keywords: [{ en: "Third author", zh: "第三作者" }, "CSSCI"]
+    keywords: [
+      { en: "Third author", zh: "第三作者" },
+      "CSSCI",
+      { en: "CAS Q2", zh: "中科院二区" }
+    ]
   }
 ];
 
