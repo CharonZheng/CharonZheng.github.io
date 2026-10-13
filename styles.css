@@ -13,8 +13,9 @@
   --terracotta: #a94f3c;
   --line: #d7ded9;
   --line-dark: rgba(255, 255, 255, 0.2);
-  --display: "Iowan Old Style", "Palatino Linotype", Palatino, "Times New Roman", serif;
-  --sans: "Avenir Next", Avenir, "Helvetica Neue", Helvetica, sans-serif;
+  --display: "Times New Roman", "Iowan Old Style", "Palatino Linotype", Palatino, serif;
+  --sans: "Times New Roman", "Avenir Next", Avenir, "Helvetica Neue", Helvetica, sans-serif;
+  --kai: "Times New Roman", "Kaiti SC", STKaiti, KaiTi, serif;
   --page: 1120px;
   --radius: 14px;
   --shadow: 0 20px 60px rgba(24, 36, 33, 0.1);
@@ -441,8 +442,7 @@ img {
 .about-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.15fr) minmax(340px, 0.85fr);
-  column-gap: clamp(50px, 8vw, 96px);
-  row-gap: 44px;
+  gap: clamp(50px, 8vw, 96px);
   align-items: start;
 }
 
@@ -520,48 +520,6 @@ img {
   display: grid;
   gap: 12px;
   margin-top: 18px;
-}
-
-.contact-strip {
-  display: grid;
-  grid-column: 1 / -1;
-  grid-template-columns: minmax(130px, 0.28fr) minmax(0, 1.72fr);
-  gap: 34px;
-  align-items: center;
-  padding: 24px 28px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: linear-gradient(105deg, var(--paper-cool), #fff 42%);
-  box-shadow: var(--shadow);
-}
-
-.contact-strip h3 {
-  margin: 0;
-  color: var(--ink);
-  font-family: var(--display);
-  font-size: 24px;
-  font-weight: 600;
-}
-
-.contact-strip .contact-links {
-  grid-template-columns: 1fr 1.25fr 1.15fr 1.2fr;
-  gap: 0;
-  margin-top: 0;
-}
-
-.contact-strip .contact-link {
-  min-width: 0;
-  padding-inline: 14px;
-  border-left: 1px solid var(--line);
-}
-
-.contact-strip .contact-link:first-child {
-  padding-left: 0;
-  border-left: 0;
-}
-
-.contact-strip .contact-link:last-child {
-  padding-right: 0;
 }
 
 .contact-link {
@@ -789,6 +747,7 @@ img {
 .research-focus-text {
   margin: 0;
   color: rgba(255, 255, 255, 0.74);
+  font-family: var(--kai);
   font-size: 14px;
 }
 
@@ -1190,21 +1149,6 @@ img {
     display: block;
   }
 
-  .contact-strip {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .contact-strip .contact-links {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    row-gap: 18px;
-  }
-
-  .contact-strip .contact-link:nth-child(odd) {
-    padding-left: 0;
-    border-left: 0;
-  }
-
   .news-section {
     grid-template-columns: 1fr;
     gap: 42px;
@@ -1306,21 +1250,6 @@ img {
 
   .panel-section {
     padding: 24px;
-  }
-
-  .contact-strip {
-    gap: 18px;
-    padding: 24px;
-  }
-
-  .contact-strip .contact-links {
-    grid-template-columns: 1fr;
-    gap: 14px;
-  }
-
-  .contact-strip .contact-link {
-    padding-inline: 0;
-    border-left: 0;
   }
 
   .news-list::before {

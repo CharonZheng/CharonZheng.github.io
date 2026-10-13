@@ -288,8 +288,6 @@ const SITE_DATA = {
       publicationsHeading: "Academic Outputs",
       publicationsNote: "Updated from the current academic outputs workbook.",
       featuredHeading: "Representative Work",
-      featuredIntro:
-        "A quick view of recent first-author and co-first-author work at the intersection of medical AI, adaptive testing, and psychometrics.",
       tableYear: "Year",
       tableTitle: "Title",
       tableAuthors: "Authors",
@@ -362,7 +360,7 @@ const SITE_DATA = {
     ],
     researchFocus: {
       title: "Current Research Focus",
-      body: "Multimodal assessment methods for examination and evaluation."
+      body: "AI-Driven Multimodal Educational Assessment"
     },
     publications: PUBLICATIONS,
     publicationDomainOrder: PUBLICATION_DOMAIN_ORDER,
@@ -434,8 +432,6 @@ const SITE_DATA = {
       publicationsHeading: "学术成果",
       publicationsNote: "已根据当前学术成果工作簿更新。",
       featuredHeading: "代表成果",
-      featuredIntro:
-        "以下成果集中体现了医学 AI、低成本大模型评测与心理测量方法的交叉方向。",
       tableYear: "年份",
       tableTitle: "题名",
       tableAuthors: "作者",
@@ -508,7 +504,7 @@ const SITE_DATA = {
     ],
     researchFocus: {
       title: "当前研究焦点",
-      body: "考试评价中的多模态评估技术应用"
+      body: "人工智能驱动的多模态教育测评"
     },
     publications: PUBLICATIONS,
     publicationDomainOrder: PUBLICATION_DOMAIN_ORDER,
