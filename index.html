@@ -3,71 +3,146 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta
-      name="description"
-      content="郑天鹏的个人学术网站，研究方向包括医学人工智能、大语言模型评测、计算机化自适应测验和心理测量。"
-    >
+    <meta name="description" content="郑天鹏的个人学术网站，研究方向包括医学人工智能、大语言模型评测、计算机化自适应测验和心理测量。">
+    <meta name="theme-color" content="#0b4f4a">
     <title>郑天鹏 · 个人学术网站</title>
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%23096770'/%3E%3Ctext x='32' y='39' text-anchor='middle' font-family='Arial,sans-serif' font-size='20' font-weight='700' fill='white'%3ETZ%3C/text%3E%3C/svg%3E">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%230b4f4a'/%3E%3Ctext x='32' y='40' text-anchor='middle' font-family='Georgia,serif' font-size='21' font-weight='700' fill='%23fffaf0'%3ETZ%3C/text%3E%3C/svg%3E">
     <link rel="stylesheet" href="styles.css">
     <script src="site-data.js" defer></script>
     <script src="main.js" defer></script>
   </head>
   <body>
-    <div class="site-shell">
-      <header class="topbar" id="top">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <header class="topbar" id="top">
+      <div class="topbar-inner">
         <a class="brand" href="#top" aria-label="Back to top">
+          <span class="brand-mark" aria-hidden="true">TZ</span>
+          <span class="brand-name" data-profile="name"></span>
         </a>
+
+        <nav class="site-nav" aria-label="Primary navigation">
+          <a href="#about" data-ui="navAbout"></a>
+          <a href="#research" data-ui="navResearch"></a>
+          <a href="#featured" data-ui="featuredHeading"></a>
+          <a href="#publications" data-ui="navPublications"></a>
+          <a href="#contact" data-ui="navContact"></a>
+        </nav>
+
         <div class="language-switch" aria-label="Language switcher">
           <button type="button" data-language-option="en">EN</button>
-          <button type="button" data-language-option="zh">ZH</button>
+          <button type="button" data-language-option="zh">中</button>
         </div>
-      </header>
+      </div>
+    </header>
 
-      <main>
-        <section class="content-band overview-layout" id="about">
-          <div class="overview-main">
-            <section class="hero" aria-labelledby="hero-title">
-              <div class="hero-copy profile-card">
-                <img class="profile-photo" src="images/person.jpg" alt="Portrait of Tianpeng Zheng">
-                <div class="profile-card-copy">
-                  <h1 id="hero-title" data-profile="name"></h1>
-                </div>
-              </div>
-            </section>
-
-            <article class="info-card education-card">
-              <div class="card-heading">
-                <h2 data-ui="educationHeading"></h2>
-              </div>
-              <div class="education-list" data-education></div>
-            </article>
+    <main id="main-content">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-backdrop" aria-hidden="true"></div>
+        <div class="page-width hero-layout">
+          <div class="portrait-wrap">
+            <div class="portrait-frame">
+              <img class="profile-photo" src="images/person.jpg" alt="Portrait of Tianpeng Zheng">
+            </div>
+            <span class="portrait-caption" data-ui="heroKicker"></span>
           </div>
 
-          <aside class="overview-sidebar">
-            <article class="side-card contact-card" id="contact">
-              <h2 data-ui="quickContactHeading"></h2>
+          <div class="hero-copy">
+            <p class="eyebrow" data-ui="aboutKicker"></p>
+            <h1 id="hero-title" data-profile="name"></h1>
+            <p class="hero-headline" data-profile="headline"></p>
+            <p class="hero-summary" data-profile="summary"></p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#featured" data-ui="heroPrimaryCta"></a>
+              <a class="button button-secondary" href="#contact" data-ui="heroSecondaryCta"></a>
+            </div>
+            <div class="profile-inline-links" data-profile-inline-links></div>
+          </div>
+        </div>
+      </section>
+
+      <div class="page-width page-flow">
+        <section class="section-block about-grid" id="about">
+          <article class="about-copy">
+            <div class="section-heading">
+              <p class="section-index">01</p>
+              <div>
+                <p class="eyebrow" data-ui="aboutKicker"></p>
+                <h2 data-ui="aboutHeading"></h2>
+              </div>
+            </div>
+            <p class="about-lead" data-ui="aboutLead"></p>
+          </article>
+
+          <aside class="profile-panel" id="contact">
+            <section class="panel-section">
+              <h3 data-ui="educationHeading"></h3>
+              <div class="education-list" data-education></div>
+            </section>
+            <section class="panel-section contact-section">
+              <h3 data-ui="quickContactHeading"></h3>
               <div class="contact-links" data-contact-links></div>
-              <h2 class="direction-heading" id="research" data-ui="researchHeading"></h2>
-              <div class="direction-tags" data-research-tags></div>
-              <section class="research-focus-card" data-research-focus></section>
-            </article>
+            </section>
           </aside>
         </section>
 
-        <section class="content-band publications-band" id="publications">
-          <div class="section-row publication-row-heading">
-            <h3 data-ui="publicationsHeading"></h3>
+        <section class="section-block news-section" id="news">
+          <div class="section-heading compact-heading">
+            <p class="section-index">02</p>
+            <div>
+              <p class="eyebrow">Timeline</p>
+              <h2 data-ui="newsHeading"></h2>
+            </div>
+          </div>
+          <div class="news-list" data-news></div>
+        </section>
+
+        <section class="section-block research-section" id="research">
+          <div class="section-heading">
+            <p class="section-index">03</p>
+            <div>
+              <p class="eyebrow" data-ui="focusHeading"></p>
+              <h2 data-ui="researchHeading"></h2>
+              <p class="section-intro" data-ui="researchIntro"></p>
+            </div>
+          </div>
+          <div class="research-grid" data-research-directions></div>
+          <div class="focus-note" data-research-focus></div>
+        </section>
+
+        <section class="section-block featured-section" id="featured">
+          <div class="section-heading">
+            <p class="section-index">04</p>
+            <div>
+              <p class="eyebrow">Selected publications</p>
+              <h2 data-ui="featuredHeading"></h2>
+              <p class="section-intro" data-ui="featuredIntro"></p>
+            </div>
+          </div>
+          <div class="featured-publications" data-featured-publications></div>
+        </section>
+
+        <section class="section-block publications-section" id="publications">
+          <div class="section-heading publications-heading">
+            <p class="section-index">05</p>
+            <div>
+              <p class="eyebrow" data-ui="outputsLabel"></p>
+              <h2 data-ui="publicationsHeading"></h2>
+              <p class="section-intro" data-ui="publicationsNote"></p>
+            </div>
             <button class="text-button" type="button" data-publications-toggle></button>
           </div>
           <div class="publication-table" data-publications></div>
         </section>
+      </div>
+    </main>
 
-      </main>
-
-      <footer class="footer">
+    <footer class="footer">
+      <div class="page-width footer-inner">
+        <p>© <span data-year></span> <span data-ui="copyright"></span></p>
+        <p class="footer-note" data-profile="headline"></p>
         <a href="#top" data-ui="backToTop"></a>
-      </footer>
-    </div>
+      </div>
+    </footer>
   </body>
 </html>

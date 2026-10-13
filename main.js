@@ -89,6 +89,52 @@ const renderEducation = (data) => {
   });
 };
 
+const renderNews = (data) => {
+  const container = resetContainer("[data-news]");
+  if (!container) return;
+
+  data.news.forEach((item) => {
+    const entry = document.createElement("article");
+    entry.className = "news-entry";
+
+    const date = document.createElement("time");
+    date.textContent = item.date;
+
+    const copy = document.createElement("p");
+    if (item.href) {
+      copy.appendChild(createExternalLink(item.text, item.href));
+    } else {
+      copy.textContent = item.text;
+    }
+
+    entry.append(date, copy);
+    container.appendChild(entry);
+  });
+};
+
+const renderResearchDirections = (data) => {
+  const container = resetContainer("[data-research-directions]");
+  if (!container) return;
+
+  data.researchDirections.forEach((item, index) => {
+    const card = document.createElement("article");
+    card.className = "research-card";
+
+    const number = document.createElement("span");
+    number.className = "research-card-number";
+    number.textContent = String(index + 1).padStart(2, "0");
+
+    const heading = document.createElement("h3");
+    heading.textContent = item.title;
+
+    const body = document.createElement("p");
+    body.textContent = item.description;
+
+    card.append(number, heading, body);
+    container.appendChild(card);
+  });
+};
+
 // 联系方式图标统一由内联 SVG 生成，方便后续用 CSS 精细控制样式。
 const CONTACT_ICON_SVGS = {
   email: `
@@ -206,9 +252,15 @@ const getJournalLevelPriority = (paper) => {
   return 0;
 };
 
-const isEnglishPublication = (paper) =>
-  /英文|english/i.test(`${paper.type?.zh || ""} ${paper.type?.en || ""}`) ||
-  !/[\u4e00-\u9fff]/u.test(paper.title || "");
+const isEnglishPublication = (paper) => {
+  const type = `${paper.type?.zh || ""} ${paper.type?.en || ""}`;
+  if (/中文|chinese/i.test(type)) return false;
+  if (/英文|english/i.test(type)) return true;
+
+  const title =
+    typeof paper.title === "string" ? paper.title : paper.title?.zh || paper.title?.en || "";
+  return !/[\u4e00-\u9fff]/u.test(title);
+};
 
 const getRolePriority = (paper) => {
   const role = `${paper.role?.zh || ""} ${paper.role?.en || ""}`;
@@ -369,6 +421,82 @@ const createPublicationEntry = (paper) => {
   return row;
 };
 
+const createFeaturedPublication = (paper, index, data) => {
+  const card = document.createElement("article");
+  card.className = "featured-card";
+
+  const visual = document.createElement("div");
+  visual.className = `featured-visual featured-visual-${(index % 3) + 1}`;
+  visual.setAttribute("aria-hidden", "true");
+
+  const visualNumber = document.createElement("span");
+  visualNumber.className = "featured-number";
+  visualNumber.textContent = String(index + 1).padStart(2, "0");
+
+  const visualLabel = document.createElement("span");
+  visualLabel.className = "featured-visual-label";
+  visualLabel.textContent = getPublicationDomains(paper)[0] || getPaperVenue(paper);
+  visual.append(visualNumber, visualLabel);
+
+  const copy = document.createElement("div");
+  copy.className = "featured-copy";
+
+  const meta = document.createElement("div");
+  meta.className = "featured-meta";
+  const year = document.createElement("span");
+  year.textContent = paper.year;
+  const venue = document.createElement("span");
+  venue.textContent = getPaperVenue(paper);
+  meta.append(year, venue);
+
+  const title = document.createElement("h3");
+  const paperTitle = getPaperTitle(paper);
+  if (paper.href) {
+    title.appendChild(createExternalLink(paperTitle, paper.href));
+  } else {
+    title.textContent = paperTitle;
+  }
+
+  const authors = document.createElement("p");
+  authors.className = "featured-authors";
+  authors.appendChild(createHighlightedAuthorFragment(getPublicationAuthors(paper)));
+
+  const badges = document.createElement("div");
+  badges.className = "featured-badges";
+  [localize(paper.role), getJournalLevel(paper), getImpactFactor(paper)]
+    .filter(Boolean)
+    .forEach((value) => {
+      const badge = document.createElement("span");
+      badge.textContent = value;
+      badges.appendChild(badge);
+    });
+
+  copy.append(meta, title, authors, badges);
+
+  if (paper.href) {
+    const link = createExternalLink(data.ui.openLink, paper.href, "featured-link");
+    link.setAttribute("aria-label", `${data.ui.openLink}: ${paperTitle}`);
+    copy.appendChild(link);
+  }
+
+  card.append(visual, copy);
+  return card;
+};
+
+const renderFeaturedPublications = (data) => {
+  const container = resetContainer("[data-featured-publications]");
+  if (!container) return;
+
+  data.publications
+    .filter(isJournalPublication)
+    .slice()
+    .sort(comparePublicationsByPriority)
+    .slice(0, 3)
+    .forEach((paper, index) => {
+      container.appendChild(createFeaturedPublication(paper, index, data));
+    });
+};
+
 const groupPublicationsByDomain = (publications) =>
   publications.reduce((groups, paper) => {
     const domain = getPublicationDomains(paper)[0] || (currentLanguage === "zh" ? "未分类" : "Uncategorized");
@@ -490,9 +618,12 @@ const renderPage = () => {
   renderProfile(data);
   renderProfileInlineLinks(data);
   renderEducation(data);
+  renderNews(data);
   renderLinks(data);
   renderResearchTags(data);
+  renderResearchDirections(data);
   renderResearchFocus(data);
+  renderFeaturedPublications(data);
   renderPublications(data);
   renderYear();
 };
