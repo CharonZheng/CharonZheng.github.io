@@ -752,9 +752,12 @@ html:lang(zh) .hero-headline {
 
 .research-focus-text {
   margin: 0;
-  color: rgba(255, 255, 255, 0.74);
+  color: rgba(255, 255, 255, 0.94);
   font-family: var(--kai);
-  font-size: 14px;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.035em;
+  line-height: 1.5;
 }
 
 .featured-publications {
@@ -1295,6 +1298,10 @@ html:lang(zh) .hero-headline {
   .focus-note {
     grid-template-columns: 1fr;
     gap: 8px;
+  }
+
+  .research-focus-text {
+    font-size: 16px;
   }
 
   .featured-card {
